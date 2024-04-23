@@ -37,6 +37,23 @@ void *mm_realloc(void *ptr, size_t size);
 | 内存使用效率 | 30%  | 得分取决于分配器总共使用的堆空间大小 |
 | 运行时间     | 20%  | 以运行使用的CPU时间计分              |
 
+对于每个测试点，达到以下标准即可得到满分
+|测试点|使用堆空间大小（Byte）|运行时间（周期数）|
+| ---- | ---- | ---- |
+|amptjp-bal.rep | 8600688 | 412366546 |
+|binary-bal.rep | 2097248 | 750190031 |
+|binary2-bal.rep | 1122400 | 1337562006 |
+|cccp-bal.rep | 8976392 | 391218264 |
+|coalescing-bal.rep | 39379200 | 750566446 |
+|cp-decl-bal.rep | 10613280 | 437277898 |
+|expr-bal.rep | 8518312 | 259369793 |
+|random-bal.rep | 39089200 | 249850130 |
+|random2-bal.rep | 38776008 | 326382116 |
+|realloc-bal.rep | 2459000 | 940527441 |
+|realloc2-bal.rep | 77400000 | 789587301 |
+|short1-bal.rep | 16392 | 503556 |
+|short2-bal.rep | 20576 | 288177 |
+
 ### 测试
 
 测试程序为 `user/ummalloc_test.c` ，使用 `make qemu` 启动 xv6 后，在终端中使用 `ummalloc_test <tracefile>` 即可进行测试，仓库中的 `traces` 文件夹中包含了所有用于测试的样例（即所有可用的 `<tracefile>`）。每个测试样例的前两行为该样例中的最大内存区域数量和操作数量，接下来的每一行会是：
