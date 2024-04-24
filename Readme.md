@@ -40,19 +40,19 @@ void *mm_realloc(void *ptr, size_t size);
 对于每个测试点，达到以下标准即可得到满分
 |测试点|使用堆空间大小（Byte）|运行时间（周期数）|
 | ---- | ---- | ---- |
-|amptjp-bal.rep | 8600688 | 412366546 |
-|binary-bal.rep | 2097248 | 750190031 |
-|binary2-bal.rep | 1122400 | 1337562006 |
-|cccp-bal.rep | 8976392 | 391218264 |
-|coalescing-bal.rep | 39379200 | 750566446 |
-|cp-decl-bal.rep | 10613280 | 437277898 |
-|expr-bal.rep | 8518312 | 259369793 |
-|random-bal.rep | 39089200 | 249850130 |
-|random2-bal.rep | 38776008 | 326382116 |
-|realloc-bal.rep | 2459000 | 940527441 |
-|realloc2-bal.rep | 77400000 | 789587301 |
-|short1-bal.rep | 16392 | 503556 |
-|short2-bal.rep | 20576 | 288177 |
+| amptjp-bal.rep | 2061756 | 412366546 |
+| binary-bal.rep | 2097324 | 750190031 |
+| binary2-bal.rep | 1122472 | 1337562006 |
+| cccp-bal.rep | 1708542 | 391218264 |
+| coalescing-bal.rep | 12432 | 750566446 | 
+| cp-decl-bal.rep | 3262472 | 437277898 |
+| expr-bal.rep | 3448656 | 259369793 |
+| random-bal.rep | 16240032 | 249850130 |
+| random2-bal.rep | 16031944 | 326382116 |
+| realloc-bal.rep | 2459648 | 940527441 |
+| realloc2-bal.rep | 97536 | 789587301 |
+| short1-bal.rep | 12396 | 503556 |
+| short2-bal.rep | 20588 | 288177 |
 
 ### 测试
 
