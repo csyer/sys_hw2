@@ -185,5 +185,12 @@ void            virtio_disk_init(void);
 void            virtio_disk_rw(struct buf *, int);
 void            virtio_disk_intr(void);
 
+// shm.c
+void shm_init(void);             // 初始化共享内存管理系统
+uint64 shm_create(int, int);        // 创建一个新的共享内存段
+uint64 shm_attach(int);    // 将共享内存段绑定到调用进程的地址空间
+uint64 shm_detach(int);      // 解绑共享内存段
+uint64 shm_ctl(int, int, int);  // 控制共享内存段的属性
+
 // number of elements in fixed-size array
 #define NELEM(x) (sizeof(x)/sizeof((x)[0]))

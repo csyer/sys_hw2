@@ -5,6 +5,7 @@
 #include "memlayout.h"
 #include "spinlock.h"
 #include "proc.h"
+#include "shm.h"
 
 uint64
 sys_exit(void)
@@ -100,19 +101,18 @@ sys_getclk(void)
 uint64
 sys_shm_create(void)
 {
-  int size;
-  if(argint(0, &size) < 0)
-    return -1;
-  return shm_create(size);
+  int size, permission;
+  argint(0, &size);
+  argint(1, &permission);
+  return shm_create(size, permission);
 }
 
 // 绑定共享内存页
-void*
+uint64
 sys_shm_attach(void)
 {
   int shm_id;
-  if(argint(0, &shm_id) < 0)
-    return -1;
+  argint(0, &shm_id);
   return shm_attach(shm_id);
 }
 
@@ -121,8 +121,7 @@ uint64
 sys_shm_detach(void)
 {
   int shm_id;
-  if(argint(0, &shm_id) < 0)
-    return -1;
+  argint(0, &shm_id);
   return shm_detach(shm_id);
 }
 
@@ -130,10 +129,10 @@ sys_shm_detach(void)
 uint64
 sys_shm_ctl(void)
 {
-  int shm_id, command;
-  void* buf;
+  int shm_id, command, permission;
   
-  if(argint(0, &shm_id) < 0 || argint(1, &command) < 0 || argptr(2, (void*)&buf, sizeof(void*)) < 0)
-    return -1;
-  return shm_ctl(shm_id, command, buf);
+  argint(0, &shm_id);
+  argint(1, &command);
+  argint(2, &permission);
+  return shm_ctl(shm_id, command, permission);
 }
