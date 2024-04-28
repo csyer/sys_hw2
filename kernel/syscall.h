@@ -21,3 +21,7 @@
 #define SYS_mkdir  20
 #define SYS_close  21
 #define SYS_getclk 22
+#define SYS_shm_create  23
+#define SYS_shm_attach  24
+#define SYS_shm_detach  25
+#define SYS_shm_ctl     26

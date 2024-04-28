@@ -95,3 +95,45 @@ sys_getclk(void)
 {
   return *(uint64*) CLINT_MTIME;
 }
+
+// 创建共享内存页
+uint64
+sys_shm_create(void)
+{
+  int size;
+  if(argint(0, &size) < 0)
+    return -1;
+  return shm_create(size);
+}
+
+// 绑定共享内存页
+void*
+sys_shm_attach(void)
+{
+  int shm_id;
+  if(argint(0, &shm_id) < 0)
+    return -1;
+  return shm_attach(shm_id);
+}
+
+// 释放共享内存页
+uint64
+sys_shm_detach(void)
+{
+  int shm_id;
+  if(argint(0, &shm_id) < 0)
+    return -1;
+  return shm_detach(shm_id);
+}
+
+// 查询和修改共享内存页配置
+uint64
+sys_shm_ctl(void)
+{
+  int shm_id, command;
+  void* buf;
+  
+  if(argint(0, &shm_id) < 0 || argint(1, &command) < 0 || argptr(2, (void*)&buf, sizeof(void*)) < 0)
+    return -1;
+  return shm_ctl(shm_id, command, buf);
+}
